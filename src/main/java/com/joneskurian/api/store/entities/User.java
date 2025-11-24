@@ -15,6 +15,7 @@ import java.util.Set;
 @Builder
 @Entity
 @Table(name = "users")
+@EqualsAndHashCode(exclude = "profile")
 public class  User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,7 +45,7 @@ public class  User {
         address.setUser(null);
     }
 
-    @OneToOne(mappedBy = "user", cascade = CascadeType.REMOVE)
+    @OneToOne(mappedBy = "user", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private Profile profile;
 
     @ManyToMany
@@ -53,6 +54,7 @@ public class  User {
         joinColumns = @JoinColumn(name = "user_id"),
         inverseJoinColumns = @JoinColumn(name = "product_id")
     )
+    @Builder.Default
     private Set<Product> favoriteProducts = new HashSet<>();
 
     public void addFavoriteProduct(Product product) {
