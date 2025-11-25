@@ -15,7 +15,6 @@ import java.util.Set;
 @Builder
 @Entity
 @Table(name = "users")
-@EqualsAndHashCode(exclude = "profile")
 public class  User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -32,4 +32,10 @@ field or hiding more members. @JsonIgnore hides a member. @JsonProperty changes 
     public void setCreatedAt(LocalDateTime time){
         this.createdAt=time;
     }
+
+    public UserDto(Long id, String name, String email){
+        this.id=id;
+        this.name = name;
+        this.email = email;
+    }
 }
