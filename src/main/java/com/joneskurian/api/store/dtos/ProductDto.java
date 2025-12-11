@@ -20,6 +20,6 @@ public class ProductDto {
     private Byte categoryId;
 
     public void setCategoryId(byte categoryId){
-        this.categoryId= categoryId;
+        this.categoryId = categoryId ;
     }
 }
